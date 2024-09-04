@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableFeignClients
 @EnableDiscoveryClient
-public class UserServiceApplication {
+public class UserServiceMcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
+        SpringApplication.run(UserServiceMcApplication.class, args);
     }
 
     @Bean

@@ -1,4 +1,8 @@
 spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
   application:
     name: user-service
   jpa:
@@ -24,7 +28,7 @@ keycloak:
   ssl-required: none
   resource: ticketing-app
   credentials:
-    secret: Yg92eAjU2NfiJWaLl8CieEbQdv55VGpL
+    secret: 0b4fLhHffgZUTmLJLfNi9w9BwJDAR8pv
   use-resource-role-mappings: true
   bearer-only: true
 
@@ -36,15 +40,14 @@ master:
   client: master-client
 
 eureka:
-    instance:
-      preferIpAddress: true
-      ipAddress: 127.0.0.1 localhost
-      status-page-url-path: ${management.context-path}/info
-      health-check-url-path: ${management.context-path}/health
-
-    client:
-      serviceUrl:
-        defaultZone: https://localhost:8761/eureka/ # This is where a eureka client sends the information to eureka server to register themself
+  instance:
+    preferIpAddress: true
+    ipAddress: 127.0.0.1
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
 management:
   endpoint:
@@ -56,23 +59,7 @@ management:
         include: "*"
   context-path: http://localhost:${server.port}/actuator
 
-
 info:
   application:
-    name: task-service
-    description: Ticketing Application Task Service
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    name: user-service
+    description: Ticketing Application User Service
