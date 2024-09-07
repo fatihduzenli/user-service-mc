@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.List;
-
+@CrossOrigin(value = "http://localhost:8762")
 @RestController
 @RequestMapping("/api/v1/user")
 @Tag(name = "UserController", description = "User controller endpoints")
@@ -210,5 +210,7 @@ public class UserController {
         userService.delete(userName);
         return ResponseEntity.noContent().build();
     }
+
+
 
 }
